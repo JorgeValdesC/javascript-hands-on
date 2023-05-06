@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document Write Overwrite Example</title>
+    <style>
+        #overwriteBtn {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Original Content</h1>
+    <p>This is the original content of the page.</p>
+    <button id="overwriteBtn">Overwrite content</button>
+
+    <script>
+        document.getElementById("overwriteBtn").addEventListener("click", function() {
+            document.write("<h1>Overwritten Content</h1>");
+            document.write("<p>The original content has been overwritten using document.write()</p>");
+        });
+    </script>
+</body>
+</html>
