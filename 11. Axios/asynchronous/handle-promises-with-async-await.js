@@ -18,3 +18,5 @@ async function handlePromises() {
 handlePromises();
 
 console.log("Script End");
+
+//  With async / await, the asynchronous code appears and reads much like synchronous code.You can more clearly see the sequence of operations, without diving into chains of.then() calls.
