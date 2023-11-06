@@ -81,6 +81,24 @@ app.post("/", function (req, res) {
   }
 });
 
+app.post("/delete", function (req, res) {
+  const itemId = req.body.itemId;
+
+  // todo; in todolist-template, call this method and pass array element in each element, 
+  // then delete only the element of array causing the issue.
+
+  // deploy inefficiente version by now
+
+  // Item.findByIdAndRemove(itemId)
+  //   .then(() => {
+  //     console.log("Successfully deleted checked item.");
+  //     res.redirect("/");
+  //   })
+  //   .catch((err) => {
+  //     console.log(err);
+  //   });
+});
+
 app.get("/work", function (req, res) {
   res.render("todolist-templates", { listTitle: "Work", items: workItems });
 });
