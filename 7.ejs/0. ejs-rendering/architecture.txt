@@ -1,0 +1,43 @@
+project/
+├── views/
+│   ├── user.ejs         # Template to render user details
+├── public/
+│   └── style.css        # Static file for styling (optional)
+├── app.js               # Main application file
+├── package.json         # Project dependencies
+
+
+
+Destructuring and Renaming
+const { name: firstName, age: yearsOld, favoriteColor: color } = user;
+Destructure properties from the user object.
+Rename:
+name → firstName
+age → yearsOld
+favoriteColor → color
+This makes variable names more descriptive and avoids conflicts in the EJS template.
+
+
+Rendering with EJS
+res.render("user", { firstName, yearsOld, color });
+Pass the destructured variables (firstName, yearsOld, color) to the EJS template.
+
+
+Route Handling
+app.get("/user/:id", (req, res) => { ... });
+:id captures a dynamic part of the URL (e.g., /user/1).
+req.params.id retrieves the value (1 in this case).
+
+
+Descriptive Variable Names:
+
+Renaming via destructuring makes the code and templates more readable.
+Dynamic Content:
+
+The route dynamically renders different user profiles.
+Clean Separation:
+
+Data (users), logic (app.js), and presentation (user.ejs) are separated.
+Styling Option:
+
+Includes a simple way to add CSS.

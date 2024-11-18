@@ -1,0 +1,17 @@
+curl -X POST "http://localhost:3000/submit-combined?name=Alice&age=20" \
+-H "Content-Type: application/json" \
+-d '{"name": "Bob", "age": 25}'
+
+
+
+
+
+-X POST: Specifies the HTTP method as POST.
+-H "Content-Type: application/x-www-form-urlencoded": Sets the Content-Type header to application/x-www-form-urlencoded.
+-d "name=John&age=30": The data sent in the request body as form data.
+
+name: Compares "Alice" and "Bob". Picks "Bob" (lexicographically larger).
+age: Compares 70 and 25. Picks 70 (numerically larger).
+
+RESPONSE EXPECTED
+{"message":"Data received successfully","receivedData":{"name":"Bob","age":70}}

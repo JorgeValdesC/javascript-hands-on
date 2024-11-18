@@ -1,0 +1,14 @@
+curl -X POST http://localhost:3000/submit-form \
+-H "Content-Type: application/x-www-form-urlencoded" \
+-d "name=John&age=30"
+
+
+
+
+-X POST: Specifies the HTTP method as POST.
+-H "Content-Type: application/x-www-form-urlencoded": Sets the Content-Type header to application/x-www-form-urlencoded.
+-d "name=John&age=30": The data sent in the request body as form data.
+
+
+RESPONSE EXPECTED
+{"message":"Data received successfully","receivedData":{"name":"John","age":30}}

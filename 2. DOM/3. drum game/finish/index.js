@@ -10,6 +10,8 @@ for (var i = 0; i < numberOfDrumButtons; i++) {
     // Retrieve the content (character) of the clicked button.
     var buttonInnerHTML = this.innerHTML;
 
+    alert(buttonInnerHTML);
+
     // Trigger the corresponding sound based on the button's character.
     makeSound(buttonInnerHTML);
 
@@ -39,8 +41,15 @@ function makeSound(key) {
   // Use a switch statement to determine which sound to play.
   switch (key) {
     case "w":
-      var tom1 = new Audio("sounds/tom-1.mp3");
+      var tom1 = new Audio("sounds/caminitos.mp3");
+      tom1.currentTime = 5;
       tom1.play();
+
+      // Detener el sonido después de 200 milisegundos
+      setTimeout(function () {
+        tom1.pause();
+        tom1.currentTime = 0; // Reinicia el audio al principio en caso de que lo necesites reproducir de nuevo
+      }, 2000);
       break;
 
     case "a":

@@ -1,0 +1,13 @@
+curl -X POST http://localhost:3000/submit \
+-H "Content-Type: application/json" \
+-d '{"name": "John", "age": 30}'
+
+
+
+-X POST: Specifies the HTTP method as POST.
+-H "Content-Type: application/json": Sets the Content-Type header to application/json.
+-d '{"name": "John", "age": 30}': The data sent in the request body as JSON.
+
+
+RESPONSE EXPECTED
+{"message":"Data received successfully","receivedData":{"name":"John","age":30}}
