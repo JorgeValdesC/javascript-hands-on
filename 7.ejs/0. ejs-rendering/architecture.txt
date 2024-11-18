@@ -41,3 +41,58 @@ Data (users), logic (app.js), and presentation (user.ejs) are separated.
 Styling Option:
 
 Includes a simple way to add CSS.
+
+
+git issues
+git config --global http.postBuffer 524288000
+
+
+Total 73 (delta 18), reused 6 (delta 0), pack-reused 0
+fatal: the remote end hung up unexpectedly
+Everything up-to-date
+
+The error message you're seeing is often related to large files or a large number of changes being pushed to the remote repository. To resolve this, you can increase the Git buffer size. Here's how to do it:
+
+Solution: Increase the Git Buffer Size
+Run the following command to increase the buffer size:
+
+git config --global http.postBuffer 524288000
+Explanation:
+http.postBuffer: Controls the buffer size for HTTP requests in Git.
+524288000: Sets the buffer size to 500 MB (524,288,000 bytes). This allows Git to handle larger files or large packs of changes during a push.
+
+Steps to Apply the Fix:
+Run the command to increase the buffer size: git config --global http.postBuffer 524288000
+Retry the push: git push origin main
+
+Other Potential Fixes
+If increasing the buffer size doesn't work, consider these additional solutions:
+
+1. Check Your Internet Connection
+A slow or unstable connection can cause the push to fail. Retry when your connection is stable.
+2. Split Your Changes
+If you're pushing a very large set of changes, try splitting it into smaller commits:
+git push origin main
+3. Ensure Remote Repository Space
+If you're using a service like GitHub or GitLab, check that your repository hasn't hit storage limits.
+4. Verbose Output for Debugging
+Enable verbose mode to see more details about the push operation:
+GIT_TRACE_PACKET=1 GIT_TRACE=1 GIT_CURL_VERBOSE=1 git push origin main
+
+
+Summary
+The most common and effective solution for this issue is:
+
+git config --global http.postBuffer 524288000
+If the issue persists after this, let me know, and I’ll help you troubleshoot further!
+
+
+
+
+
+
+
+
+
+
+
