@@ -1,0 +1,57 @@
+Why Use const to Start Asynchronous Tasks?
+1. To Track and Control the Promises
+When you call an asynchronous function like readFile() or fetchAPI(), it immediately returns a Promise. Assigning this Promise to a variable (e.g., fileTask or apiTask) allows you to:
+
+Track the progress of each task.
+Use the variable later to await or .then() on the Promise.
+Without storing the Promise, you wouldn't be able to easily reference it later.
+
+2. To Start Tasks in Parallel
+By starting both tasks (readFile() and fetchAPI()) before awaiting either of them, you allow them to run in parallel.
+
+Here’s how this works:
+
+The readFile() and fetchAPI() functions are called immediately.
+Their Promises begin execution at the same time (non-blocking).
+Later, you await both Promises, ensuring that the main program waits for both tasks to complete.
+If you didn't store the Promises in variables, you'd have to await one task before starting the next, which would make the tasks run sequentially, slowing down the overall execution.
+
+
+Parallel Execution:
+
+const fileTask = readFile(); // Start Task 1
+const apiTask = fetchAPI(); // Start Task 2 (at the same time)
+
+// Wait for both to complete
+await fileTask;
+await apiTask;
+
+Both tasks start at the same time.
+Total time ≈ the duration of the longest task.
+
+
+Sequential Execution:
+
+await readFile(); // Start and finish Task 1
+await fetchAPI(); // Start and finish Task 2
+
+Task 2 starts only after Task 1 finishes.
+Total time = Task 1 time + Task 2 time.
+
+
+
+By storing the Promises in variables, you can reuse them:
+
+Log their state.
+Use them in multiple places without re-invoking the functions.
+For example:
+
+const fileTask = readFile();
+const apiTask = fetchAPI();
+
+// Use the tasks in multiple places
+await fileTask;
+console.log("File read completed!");
+await apiTask;
+console.log("API fetch completed!");
+Without storing the Promises, you'd have to re-call the functions, which could restart the tasks unnecessarily.
