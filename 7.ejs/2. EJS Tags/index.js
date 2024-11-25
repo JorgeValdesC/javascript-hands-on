@@ -4,7 +4,7 @@ const port = 3000;
 
 app.get("/", (req, res) => {
   const data = {
-    title: "EJS Tags",
+    title: "Prueba de Jorge EJS tags",
     seconds: new Date().getSeconds(),
     items: ["apple", "banana", "cherry"],
     htmlContent: "<strong>This is some strong text</strong>",
